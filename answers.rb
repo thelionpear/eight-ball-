@@ -38,5 +38,11 @@ class Answer
 	def inititalize(ans)
 		@ans = ans
 	end
+
 end
 
+
+	def self.comment(comment)
+		@comment = comment
+	end
+end

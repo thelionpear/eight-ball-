@@ -1,5 +1,6 @@
 require 'pry'
 require_relative 'answers'
+require 'pry'
 
 ### MAIN MENU ###
 
@@ -78,9 +79,11 @@ Answer.new
 class PlayMagic
 	attr_accessor :ans
 
-	@answer_bank = [Answer.new('yes'), Answer.new('no'), Answer.new('maybe')]
+#binding.pry
+	@answer_bank = [Answer.comment('yes'), Answer.comment('no'), Answer.comment('maybe')]
 	
 	def initialize
+
 		@player_answers = []
 		menu
 	end
