@@ -9,6 +9,8 @@
 require 'pry'
 require_relative 'answers'
 
+### MAIN MENU ###
+
 def menu
 	puts "\n"
 	puts "*" * 63
@@ -18,19 +20,7 @@ def menu
 	user_selection
 end
 
-def add_answer
-	puts "\tWhat answer would you like to add?"
-	 answer_input = gets
-	 if answer_input == "quit" || answer_input == "QUIT"
-		 puts "Returning to main menu, not adding anything"
-		 menu
-	 else
-	  @answers << answer_input
-	end
-	puts "You just added #{@answers.last}"
-	puts "Returning to main menu"
-	menu
-end
+### USER SELECTION ###
 
 def user_selection
 	question = gets.strip.downcase
@@ -46,9 +36,28 @@ def user_selection
 			exit
 		else
 			puts "\t#{@answers.sample}"
+
 		end
 	menu
 end
+
+### ADD ANSWER ###
+
+def add_answer
+	puts "\tWhat answer would you like to add?"
+	 answer_input = gets
+	 if answer_input == "nevermind"
+		 puts "Returning to main menu, not adding anything"
+		 menu
+	 else
+	  @answers << answer_input
+	end
+	puts "You just added #{@answers.last}"
+	puts "Returning to main menu"
+	menu
+end
+
+### PRINT ANSWERS ###
 
 def print_answers
 	puts "\n"
@@ -57,16 +66,19 @@ def print_answers
 	menu
 end
 
+### RESET ANSWERS ###
+
 def reset_answer
 	puts "\tAre you sure you want to reset all answers? [Y/N]"
 	choice = gets.strip
-	if choice == "Y" || "y"
+	if choice == "Y" || choice == "y"
 		puts "Back to square one..."
 		Answer.new
 	else
 		puts "Your chances have remained the same, live another day!"
 	menu
 	end
+	binding.pry
 end
 
 Answer.new
