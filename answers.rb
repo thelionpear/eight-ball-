@@ -1,4 +1,3 @@
-
 class Answer
 	attr_accessor :answers
 
@@ -32,3 +31,12 @@ end
 # 		puts @answer.sample
 # 	end
 # end
+
+class Answer
+	attr_accessor :ans
+
+	def inititalize(ans)
+		@ans = ans
+	end
+end
+
